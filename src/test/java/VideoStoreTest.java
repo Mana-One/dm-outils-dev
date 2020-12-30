@@ -54,6 +54,16 @@ public class VideoStoreTest extends TestCase {
 	}
 
 	@Test
+	public void testSingleChildrensMoreThanThreeDaysStatement(){
+		customer.addRental( new Rental( new ChildrenMovie( "The Tigger Movie" ), 12 ));
+		assertEquals( "Rental Record for Fred\n"
+			.concat( "\tThe Tigger Movie\t15.0\n" )
+			.concat( "You owed 15.0\n" )
+			.concat( "You earned 1 frequent renter points\n" ), 
+		customer.statement() );
+	}
+
+	@Test
 	public void testSingleRegularStatement(){
 		customer.addRental( new Rental( new RegularMovie( "Gran Torino" ), 2 ));
 		assertEquals( "Rental Record for Fred\n"
