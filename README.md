@@ -1,8 +1,10 @@
 # Author<br>
 Paolo Manaois 3AL1
 <br><br>
+Each commit is the solution for a specific smell or optimization : the smells are corrected in the order defined in the array below, the same goes for optimizations, however between two smell solutions, an optimization may be applied though these should be commonly found as the last commits.
+<br><br>
 
 # Smells detected<br>
 Smell identified | Refactoring technique(s) used | Benefits of refactoring
  --- | --- | --- 
-smell 1 | <ul><li>technique 1</li><li>technique 2</li></ul> | better code !
+Object-orientation abuser : complex switch statement in Customer class | <ul><li>Creation of subclasses of Movie</li><li>Usage of polymorphism</li></ul> | The creation of subclasses gets rid of another smell : Primitive obsession with constants in Movie class.<br>The customer class no longer handles the calculation of rental prices, each subclass of Movie has its own method.<br>The same applies to the calculation of rental points.<br>Overall, the code is cleaner since it is shorter and a new behaviour (i.e subclass of Movie) will not compromise the statement method in Customer.

@@ -1,28 +1,16 @@
 package com.esgi.pmanaois;
 
-public class Movie
-{
-	public static final int CHILDRENS = 2;
-	public static final int REGULAR = 0;
-	public static final int NEW_RELEASE = 1;
+abstract class Movie {	
+	protected String title;
 	
-	private String title;
-	private int priceCode;
-	
-	public Movie( String title, int priceCode ){
+	public Movie( String title ){
 		this.title = title;
-		this.priceCode = priceCode;
-	}
-	
-	public int getPriceCode(){
-		return priceCode;
-	}
-	
-	public void setPriceCode( int code ){
-		priceCode = code;
 	}
 	
 	public String getTitle(){
-		return title;
+		return this.title;
 	}	
+
+	abstract double calculateRentalPrice( int rentalDays );
+	abstract int calculateRenterPoints( int rentalDays );
 }
