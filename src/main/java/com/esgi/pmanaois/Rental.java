@@ -16,4 +16,12 @@ public class Rental {
 	public Movie getMovie(){
 		return movie;
 	}
+
+	public double calculateRentalPrice(){
+		return this.movie.calculateRentalPrice( this.daysRented );
+	}
+
+	public int calculateRenterPoints(){
+		return this.movie.calculateRenterPoints( this.daysRented );
+	}
 }
