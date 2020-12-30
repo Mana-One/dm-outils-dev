@@ -15,3 +15,4 @@ Dispensable : Rental is a Data Class | <ul><li>Hide method of movie instance in 
 Description | Benefits of this method
  --- | --- 
 Replaced Vector by ArrayList | Using an array list is more convenient when iterating over its elements : the code has been reduced a little in the statement method of the Customer class.
+Modified string handling | The concat method is stricter than the '+' operator.<br>The format method is a cleaner way to concatenate string and non-string elements.

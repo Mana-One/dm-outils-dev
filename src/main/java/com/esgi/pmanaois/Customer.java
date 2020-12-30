@@ -21,22 +21,16 @@ public class Customer {
 	public String statement () {
 		double totalAmount = 0;
 		int	frequentRenterPoints = 0;
-		String result = "Rental Record for " + getName () + "\n";
+		String result = String.format( "Rental Record for %s\n", this.getName() );
 
-		for( Rental rental : rentals ){
-			double thisAmount = 0;
-
-			thisAmount += rental.calculateRentalPrice();
+		for( Rental rental : this.rentals ){
+			double thisAmount = rental.calculateRentalPrice();
 			frequentRenterPoints += rental.calculateRenterPoints();
-			result += "\t" + rental.getMovie().getTitle() + "\t"
-								+ String.valueOf(thisAmount) + "\n";
+			result = result.concat( String.format( "\t%s\t%s\n", rental.getMovie().getTitle(), String.valueOf( thisAmount ) ));
 			totalAmount += thisAmount;
 		}
 		
-		result += "You owed " + String.valueOf( totalAmount ) + "\n";
-		result += "You earned " + String.valueOf( frequentRenterPoints ) + " frequent renter points\n";
-		
-		
-		return result;
+		return result.concat( String.format( "You owed %s\n", String.valueOf( totalAmount )))
+			.concat( String.format( "You earned %d frequent renter points\n", frequentRenterPoints ));
 	}
 }
