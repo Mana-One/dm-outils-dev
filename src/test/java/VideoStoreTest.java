@@ -4,8 +4,9 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 
-public class VideoStoreTest extends TestCase
-{
+public class VideoStoreTest extends TestCase {
+	private Customer customer;
+
 	public VideoStoreTest( String name ){
 		super( name );
 	}
@@ -25,15 +26,22 @@ public class VideoStoreTest extends TestCase
 
 	@Test
 	public void testDualNewReleaseStatement () {
-		customer.addRental (new Rental (new NewReleaseMovie ("The Cell" ), 3));
-		customer.addRental (new Rental (new NewReleaseMovie ("The Tigger Movie" ), 3));		
-		assertEquals ("Rental Record for Fred\n\tThe Cell\t9.0\n\tThe Tigger Movie\t9.0\nYou owed 18.0\nYou earned 4 frequent renter points\n", customer.statement ());
+		customer.addRental( new Rental( new NewReleaseMovie( "The Cell" ), 3 ));
+		customer.addRental( new Rental( new NewReleaseMovie( "The Tigger Movie" ), 3 ));		
+		assertEquals ("Rental Record for Fred\n" + 
+			"\tThe Cell\t9.0\n" + 
+			"\tThe Tigger Movie\t9.0\n" +
+			"You owed 18.0\nYou earned 4 frequent renter points\n", 
+		customer.statement() );
 	}
 
 	@Test
-	public void testSingleChildrensStatement () {
-		customer.addRental (new Rental (new ChildrenMovie ("The Tigger Movie" ), 3));
-		assertEquals ("Rental Record for Fred\n\tThe Tigger Movie\t1.5\nYou owed 1.5\nYou earned 1 frequent renter points\n", customer.statement ());
+	public void testSingleChildrensStatement(){
+		customer.addRental( new Rental( new ChildrenMovie( "The Tigger Movie" ), 3 ));
+		assertEquals( "Rental Record for Fred\n" +
+			"\tThe Tigger Movie\t1.5\n" +
+			"You owed 1.5\nYou earned 1 frequent renter points\n", 
+		customer.statement() );
 	}
 	
 	@Test
@@ -49,6 +57,4 @@ public class VideoStoreTest extends TestCase
 			"You owed 7.5\nYou earned 3 frequent renter points\n", 
 		customer.statement());
 	}
-
-	private Customer customer;
 }
