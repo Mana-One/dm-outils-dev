@@ -1,7 +1,7 @@
 # Author
 Paolo Manaois 3AL1
 <br><br>
-Each commit is the solution for a specific smell or optimization : the smells are corrected in the order defined in the array below, the same goes for optimizations, however between two smell solutions, an optimization may be applied though these should be commonly found as the last commits.
+Each commit is the solution for a specific smell, an optimization or a new feature : the smells are corrected in the order defined in the array below, the same goes for optimizations, however between two smell solutions, an optimization may be applied though these should be found as the last commits.
 <br><br>
 
 # Smells detected
@@ -16,3 +16,9 @@ Description | Benefits of this method
  --- | --- 
 Replaced Vector by ArrayList | Using an array list is more convenient when iterating over its elements : the code has been reduced a little in the statement method of the Customer class.
 Modified string handling | The concat method is stricter than the '+' operator.<br>The format method is a cleaner way to concatenate string and non-string elements.
+<br><br><br>
+
+# New Features
+<ul>
+<li>No rental statement test</li>
+</ul>

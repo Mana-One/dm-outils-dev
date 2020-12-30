@@ -10,11 +10,11 @@ public class Rental {
 	}
 	
 	public int getDaysRented(){
-		return daysRented;
+		return this.daysRented;
 	}
 	
 	public Movie getMovie(){
-		return movie;
+		return this.movie;
 	}
 
 	public double calculateRentalPrice(){
