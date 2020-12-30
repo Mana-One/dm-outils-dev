@@ -23,4 +23,5 @@ Modified string handling | The concat method is stricter than the '+' operator.<
 <li>No rental statement test</li>
 <li>Single regular movie statement test</li>
 <li>Single regular movie more than 2 days statement test</li>
+<li>Single new release movie 1 day statement test</li>
 </ul>
