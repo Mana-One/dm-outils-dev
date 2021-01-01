@@ -13,8 +13,8 @@ public class Rental {
 		return this.daysRented;
 	}
 	
-	public Movie getMovie(){
-		return this.movie;
+	public String getMovieTitle(){
+		return this.movie.getTitle();
 	}
 
 	public double calculateRentalPrice(){

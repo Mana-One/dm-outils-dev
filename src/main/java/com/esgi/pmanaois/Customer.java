@@ -26,7 +26,7 @@ public class Customer {
 		for( Rental rental : this.rentals ){
 			double thisAmount = rental.calculateRentalPrice();
 			frequentRenterPoints += rental.calculateRenterPoints();
-			result = result.concat( String.format( "\t%s\t%s\n", rental.getMovie().getTitle(), String.valueOf( thisAmount ) ));
+			result = result.concat( String.format( "\t%s\t%s\n", rental.getMovieTitle(), String.valueOf( thisAmount ) ));
 			totalAmount += thisAmount;
 		}
 		
