@@ -14,10 +14,6 @@ public class Customer {
 		this.rentals.add( rental );
 	}
 	
-	public String getName(){
-		return this.name;
-	}
-	
 	public String getRentalHistory(){
 		double totalAmount = 0;
 		int	frequentRenterPoints = 0;
