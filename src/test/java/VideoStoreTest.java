@@ -124,4 +124,19 @@ public class VideoStoreTest extends TestCase {
 			.concat( "You earned 3 frequent renter points\n" ), 
 		customer.statement() );
 	}
+
+	@Test
+	public void testMultipleMoviesStatement(){
+		customer.addRental( new Rental( new NewReleaseMovie( "Plan 9 from Outer Space" ), 1 ));
+		customer.addRental( new Rental( new ChildrenMovie( "8 1/2" ), 2 ));
+		customer.addRental( new Rental( new RegularMovie( "Eraserhead" ), 3 ));
+		
+		assertEquals( "Rental Record for Fred\n"
+			.concat( "\tPlan 9 from Outer Space\t3.0\n" ) 
+			.concat( "\t8 1/2\t1.5\n" )
+			.concat( "\tEraserhead\t3.5\n" ) 
+			.concat( "You owed 8.0\n" )
+			.concat( "You earned 3 frequent renter points\n" ), 
+		customer.statement() );
+	}
 }
