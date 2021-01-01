@@ -84,7 +84,7 @@ public class VideoStoreTest extends TestCase {
 	}
 
 	@Test
-	public void testDualNewReleaseStatement () {
+	public void testDualNewReleaseStatement(){
 		customer.addRental( new Rental( new NewReleaseMovie( "The Cell" ), 3 ));
 		customer.addRental( new Rental( new NewReleaseMovie( "The Tigger Movie" ), 3 ));		
 		assertEquals( "Rental Record for Fred\n"
@@ -92,6 +92,21 @@ public class VideoStoreTest extends TestCase {
 			.concat( "\tThe Tigger Movie\t9.0\n" )
 			.concat( "You owed 18.0\n" )
 			.concat( "You earned 4 frequent renter points\n" ), 
+		customer.statement() );
+	}
+
+	@Test
+	public void testMultipleChildrenStatement(){
+		customer.addRental( new Rental( new ChildrenMovie( "Plan 9 from Outer Space" ), 1 ));
+		customer.addRental( new Rental( new ChildrenMovie( "8 1/2" ), 2 ));
+		customer.addRental( new Rental( new ChildrenMovie( "Eraserhead" ), 3 ));
+
+		assertEquals( "Rental Record for Fred\n"
+			.concat( "\tPlan 9 from Outer Space\t1.5\n" ) 
+			.concat( "\t8 1/2\t1.5\n" )
+			.concat( "\tEraserhead\t1.5\n" ) 
+			.concat( "You owed 4.5\n" )
+			.concat( "You earned 3 frequent renter points\n" ), 
 		customer.statement() );
 	}
 	
