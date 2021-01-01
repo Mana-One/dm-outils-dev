@@ -20,7 +20,7 @@ public class VideoStoreTest extends TestCase {
 		assertEquals( "Rental Record for Fred\n"
 			.concat( "You owed 0.0\n" )
 			.concat( "You earned 0 frequent renter points\n" ), 
-		customer.statement() );
+		customer.getRentalHistory() );
 	}
 	
 	@Test
@@ -30,7 +30,7 @@ public class VideoStoreTest extends TestCase {
 			.concat( "\tThe Cell\t9.0\n" )
 			.concat( "You owed 9.0\n" )
 			.concat( "You earned 2 frequent renter points\n" ), 
-		customer.statement() );
+		customer.getRentalHistory() );
 	}
 
 	@Test
@@ -40,7 +40,7 @@ public class VideoStoreTest extends TestCase {
 			.concat( "\tThe Cell\t3.0\n" )
 			.concat( "You owed 3.0\n" )
 			.concat( "You earned 1 frequent renter points\n" ), 
-		customer.statement() );
+		customer.getRentalHistory() );
 	}
 
 	@Test
@@ -50,7 +50,7 @@ public class VideoStoreTest extends TestCase {
 			.concat( "\tThe Tigger Movie\t1.5\n" )
 			.concat( "You owed 1.5\n" )
 			.concat( "You earned 1 frequent renter points\n" ), 
-		customer.statement() );
+		customer.getRentalHistory() );
 	}
 
 	@Test
@@ -60,7 +60,7 @@ public class VideoStoreTest extends TestCase {
 			.concat( "\tThe Tigger Movie\t15.0\n" )
 			.concat( "You owed 15.0\n" )
 			.concat( "You earned 1 frequent renter points\n" ), 
-		customer.statement() );
+		customer.getRentalHistory() );
 	}
 
 	@Test
@@ -70,7 +70,7 @@ public class VideoStoreTest extends TestCase {
 			.concat( "\tGran Torino\t2.0\n" )
 			.concat( "You owed 2.0\n" )
 			.concat( "You earned 1 frequent renter points\n" ), 
-		customer.statement() );
+		customer.getRentalHistory() );
 	}
 
 	@Test
@@ -80,7 +80,7 @@ public class VideoStoreTest extends TestCase {
 			.concat( "\tGran Torino\t8.0\n" )
 			.concat( "You owed 8.0\n" )
 			.concat( "You earned 1 frequent renter points\n" ), 
-		customer.statement() );
+		customer.getRentalHistory() );
 	}
 
 	@Test
@@ -92,7 +92,7 @@ public class VideoStoreTest extends TestCase {
 			.concat( "\tThe Tigger Movie\t9.0\n" )
 			.concat( "You owed 18.0\n" )
 			.concat( "You earned 4 frequent renter points\n" ), 
-		customer.statement() );
+		customer.getRentalHistory() );
 	}
 
 	@Test
@@ -107,7 +107,7 @@ public class VideoStoreTest extends TestCase {
 			.concat( "\tEraserhead\t1.5\n" ) 
 			.concat( "You owed 4.5\n" )
 			.concat( "You earned 3 frequent renter points\n" ), 
-		customer.statement() );
+		customer.getRentalHistory() );
 	}
 	
 	@Test
@@ -122,7 +122,7 @@ public class VideoStoreTest extends TestCase {
 			.concat( "\tEraserhead\t3.5\n" ) 
 			.concat( "You owed 7.5\n" )
 			.concat( "You earned 3 frequent renter points\n" ), 
-		customer.statement() );
+		customer.getRentalHistory() );
 	}
 
 	@Test
@@ -137,6 +137,6 @@ public class VideoStoreTest extends TestCase {
 			.concat( "\tEraserhead\t3.5\n" ) 
 			.concat( "You owed 8.0\n" )
 			.concat( "You earned 3 frequent renter points\n" ), 
-		customer.statement() );
+		customer.getRentalHistory() );
 	}
 }
