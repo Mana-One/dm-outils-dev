@@ -12,11 +12,11 @@ public class VideoStoreTest extends TestCase {
 	}
 	
 	protected void setUp(){
-		customer = new Customer( "Fred" );
+		this.customer = new Customer( "Fred" );
 	}
 
 	@Test
-	public void testNoRentalStatement(){
+	public void testNoRentalRentalHistory(){
 		assertEquals( "Rental Record for Fred\n"
 			.concat( "You owed 0.0\n" )
 			.concat( "You earned 0 frequent renter points\n" ), 
@@ -24,8 +24,9 @@ public class VideoStoreTest extends TestCase {
 	}
 	
 	@Test
-	public void testSingleNewReleaseStatement(){
-		customer.addRental( new Rental( new NewReleaseMovie( "The Cell" ), 3 ));		
+	public void testSingleNewReleaseRentalHistory(){
+		customer.addRental( new Rental( new NewReleaseMovie( "The Cell" ), 3 ));	
+			
 		assertEquals( "Rental Record for Fred\n"
 			.concat( "\tThe Cell\t9.0\n" )
 			.concat( "You owed 9.0\n" )
@@ -34,8 +35,9 @@ public class VideoStoreTest extends TestCase {
 	}
 
 	@Test
-	public void testSingleNewReleaseOneDayStatement(){
+	public void testSingleNewReleaseOneDayRentalHistory(){
 		customer.addRental( new Rental( new NewReleaseMovie( "The Cell" ), 1 ));		
+
 		assertEquals( "Rental Record for Fred\n"
 			.concat( "\tThe Cell\t3.0\n" )
 			.concat( "You owed 3.0\n" )
@@ -44,8 +46,9 @@ public class VideoStoreTest extends TestCase {
 	}
 
 	@Test
-	public void testSingleChildrensStatement(){
+	public void testSingleChildrensRentalHistory(){
 		customer.addRental( new Rental( new ChildrenMovie( "The Tigger Movie" ), 3 ));
+
 		assertEquals( "Rental Record for Fred\n"
 			.concat( "\tThe Tigger Movie\t1.5\n" )
 			.concat( "You owed 1.5\n" )
@@ -54,8 +57,9 @@ public class VideoStoreTest extends TestCase {
 	}
 
 	@Test
-	public void testSingleChildrensMoreThanThreeDaysStatement(){
+	public void testSingleChildrensMoreThanThreeDaysRentalHistory(){
 		customer.addRental( new Rental( new ChildrenMovie( "The Tigger Movie" ), 12 ));
+
 		assertEquals( "Rental Record for Fred\n"
 			.concat( "\tThe Tigger Movie\t15.0\n" )
 			.concat( "You owed 15.0\n" )
@@ -64,8 +68,9 @@ public class VideoStoreTest extends TestCase {
 	}
 
 	@Test
-	public void testSingleRegularStatement(){
+	public void testSingleRegularRentalHistory(){
 		customer.addRental( new Rental( new RegularMovie( "Gran Torino" ), 2 ));
+
 		assertEquals( "Rental Record for Fred\n"
 			.concat( "\tGran Torino\t2.0\n" )
 			.concat( "You owed 2.0\n" )
@@ -74,8 +79,9 @@ public class VideoStoreTest extends TestCase {
 	}
 
 	@Test
-	public void testSingleRegularMoreThanTwoDaysStatement(){
+	public void testSingleRegularMoreThanTwoDaysRentalHistory(){
 		customer.addRental( new Rental( new RegularMovie( "Gran Torino" ), 6 ));
+
 		assertEquals( "Rental Record for Fred\n"
 			.concat( "\tGran Torino\t8.0\n" )
 			.concat( "You owed 8.0\n" )
@@ -84,9 +90,10 @@ public class VideoStoreTest extends TestCase {
 	}
 
 	@Test
-	public void testDualNewReleaseStatement(){
+	public void testDualNewReleaseRentalHistory(){
 		customer.addRental( new Rental( new NewReleaseMovie( "The Cell" ), 3 ));
-		customer.addRental( new Rental( new NewReleaseMovie( "The Tigger Movie" ), 3 ));		
+		customer.addRental( new Rental( new NewReleaseMovie( "The Tigger Movie" ), 3 ));	
+
 		assertEquals( "Rental Record for Fred\n"
 			.concat( "\tThe Cell\t9.0\n" )
 			.concat( "\tThe Tigger Movie\t9.0\n" )
@@ -96,7 +103,7 @@ public class VideoStoreTest extends TestCase {
 	}
 
 	@Test
-	public void testMultipleChildrenStatement(){
+	public void testMultipleChildrenRentalHistory(){
 		customer.addRental( new Rental( new ChildrenMovie( "Plan 9 from Outer Space" ), 1 ));
 		customer.addRental( new Rental( new ChildrenMovie( "8 1/2" ), 2 ));
 		customer.addRental( new Rental( new ChildrenMovie( "Eraserhead" ), 3 ));
@@ -111,7 +118,7 @@ public class VideoStoreTest extends TestCase {
 	}
 	
 	@Test
-	public void testMultipleRegularStatement(){
+	public void testMultipleRegularRentalHistory(){
 		customer.addRental( new Rental( new RegularMovie( "Plan 9 from Outer Space" ), 1 ));
 		customer.addRental( new Rental( new RegularMovie( "8 1/2" ), 2 ));
 		customer.addRental( new Rental( new RegularMovie( "Eraserhead" ), 3 ));
@@ -126,7 +133,7 @@ public class VideoStoreTest extends TestCase {
 	}
 
 	@Test
-	public void testMultipleMoviesStatement(){
+	public void testMultipleMoviesRentalHistory(){
 		customer.addRental( new Rental( new NewReleaseMovie( "Plan 9 from Outer Space" ), 1 ));
 		customer.addRental( new Rental( new ChildrenMovie( "8 1/2" ), 2 ));
 		customer.addRental( new Rental( new RegularMovie( "Eraserhead" ), 3 ));

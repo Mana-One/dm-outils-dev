@@ -21,16 +21,29 @@ public class Customer {
 	public String getRentalHistory(){
 		double totalAmount = 0;
 		int	frequentRenterPoints = 0;
-		String result = String.format( "Rental Record for %s\n", this.getName() );
+		String history = this.getHistoryTop();
 
 		for( Rental rental : this.rentals ){
-			double thisAmount = rental.calculateRentalPrice();
+			double rentalPrice = rental.calculateRentalPrice();
 			frequentRenterPoints += rental.calculateRenterPoints();
-			result = result.concat( String.format( "\t%s\t%s\n", rental.getMovieTitle(), String.valueOf( thisAmount ) ));
-			totalAmount += thisAmount;
+			history = this.appendHistoryBody( history, rental.getMovieTitle(), rentalPrice );
+			totalAmount += rentalPrice;
 		}
 		
-		return result.concat( String.format( "You owed %s\n", String.valueOf( totalAmount )))
-			.concat( String.format( "You earned %d frequent renter points\n", frequentRenterPoints ));
+		return this.appendHistoryBottom( history, totalAmount, frequentRenterPoints );
+	}
+
+	private String getHistoryTop(){
+		return String.format( "Rental Record for %s\n", this.name );
+	}
+
+	private String appendHistoryBody( String history, String movieTitle, double rentalPrice ){
+		return history.concat( String.format( "\t%s\t%s\n", movieTitle, String.valueOf( rentalPrice )));
+	}
+
+	private String appendHistoryBottom( String history, double totalAmount, int rentalPoints ){
+		return history
+			.concat( String.format( "You owed %s\n", String.valueOf( totalAmount )))
+			.concat( String.format( "You earned %d frequent renter points\n", rentalPoints ));
 	}
 }
