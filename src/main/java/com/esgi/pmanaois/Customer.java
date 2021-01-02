@@ -34,12 +34,20 @@ public class Customer {
 	}
 
 	private String appendHistoryBody( String history, String movieTitle, double rentalPrice ){
-		return history.concat( String.format( "\t%s\t%s\n", movieTitle, String.valueOf( rentalPrice )));
+		return String.format( 
+			"%s\t%s\t%s\n", 
+			history, 
+			movieTitle, 
+			String.valueOf( rentalPrice )
+		);
 	}
 
 	private String appendHistoryBottom( String history, double totalAmount, int rentalPoints ){
-		return history
-			.concat( String.format( "You owed %s\n", String.valueOf( totalAmount )))
-			.concat( String.format( "You earned %d frequent renter points\n", rentalPoints ));
+		return String.format( 
+			"%sYou owed %s\nYou earned %d frequent renter points\n", 
+			history,
+			String.valueOf( totalAmount ), 
+			rentalPoints 
+		);
 	}
 }

@@ -7,7 +7,7 @@ Each commit is the solution for a specific smell, an optimization or a new featu
 Smells and refactoring techniques here are those described by [Refactoring Guru](https://refactoring.guru), other fixes will be counted as optimizations.<br><br>
 Smells count : 5<br>
 Refactoring techniques used : 5<br>
-Optimizations : 4<br>
+Optimizations : 5<br>
 New features (tests) : 7<br>
 <br><br>
 
@@ -28,7 +28,7 @@ Replaced Vector by ArrayList | Using an array list is more convenient when itera
 Modified string handling | The concat method is stricter than the '+' operator.<br>The format method is a cleaner way to concatenate string and non-string elements.
 Changed statement method name to getRentalHistory | The purpose of this method is more explicit through its name.
 Created private methods to handle the string generation of the history in Customer class. | The code is more flexible since the format of the strings can be modified without having to change the getRentalHistory method.
-
+Removed String.concat calls in Customer class private methods (added by me in the first place). | The String.format method is enough to concatenate strings, removing String.concat calls makes the code easier to understand (no more String.format calls within String.concat methods).
 <br><br><br>
 
 # New Features
