@@ -5,9 +5,9 @@ Paolo Manaois 3AL1
 # Summary
 Each commit is the solution for a specific smell, an optimization or a new feature.<br>
 Smells and refactoring techniques here are those described by [Refactoring Guru](https://refactoring.guru), other fixes will be counted as optimizations.<br><br>
-Smells count : 5<br>
-Refactoring techniques used : 5<br>
-Optimizations : 5<br>
+Smell count : 5<br>
+Refactoring techniques used : 6<br>
+Optimizations : 6<br>
 New features (tests) : 7<br>
 <br><br>
 
@@ -29,6 +29,7 @@ Modified string handling | The concat method is stricter than the '+' operator.<
 Changed statement method name to getRentalHistory | The purpose of this method is more explicit through its name.
 Created private methods to handle the string generation of the history in Customer class. | The code is more flexible since the format of the strings can be modified without having to change the getRentalHistory method.
 Removed String.concat calls in Customer class private methods (added by me in the first place). | The String.format method is enough to concatenate strings, removing String.concat calls makes the code easier to understand (no more String.format calls within String.concat methods).
+Replaced magic numbers in Movie class and sub-classes (also a refactoring technique from Refactoring Guru -> will count as both an optimization and a refactoring technique). | The code is more comprehensible.
 <br><br><br>
 
 # New Features
